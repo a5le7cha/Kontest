@@ -1,0 +1,7 @@
+C:\работы по програм-ю\Kontest\Kontest_project\bin\Debug\Kontest_project.exe.config
+C:\работы по програм-ю\Kontest\Kontest_project\bin\Debug\Kontest_project.exe
+C:\работы по програм-ю\Kontest\Kontest_project\bin\Debug\Kontest_project.pdb
+C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.csproj.AssemblyReference.cache
+C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.csproj.CoreCompileInputs.cache
+C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.exe
+C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.pdb
