@@ -5,3 +5,10 @@ C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest
 C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.csproj.CoreCompileInputs.cache
 C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.exe
 C:\работы по програм-ю\Kontest\Kontest_project\obj\Debug\Kontest_project.pdb
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\bin\Debug\Kontest_project.exe.config
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\bin\Debug\Kontest_project.exe
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\bin\Debug\Kontest_project.pdb
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\obj\Debug\Kontest_project.csproj.AssemblyReference.cache
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\obj\Debug\Kontest_project.csproj.CoreCompileInputs.cache
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\obj\Debug\Kontest_project.exe
+C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project\obj\Debug\Kontest_project.pdb

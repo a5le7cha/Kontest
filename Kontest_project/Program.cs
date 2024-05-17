@@ -52,6 +52,9 @@ namespace Kontest_project
             {
                 Console.WriteLine(1);
                 Console.WriteLine(dis.Count - 1);
+                var item = dis[0];
+                dis[0] = dis[1];
+                dis[1] = item;
                 for (int i = 0; i < dis.Count; i++)
                 {
                     Console.Write($"{dis[i]} ");
@@ -110,6 +113,7 @@ namespace Kontest_project
                 if (parent == reg)
                 {
                     res.Add(parent);
+                    res.Add(kid);
                 }
             }
             else res.Add(-1);
