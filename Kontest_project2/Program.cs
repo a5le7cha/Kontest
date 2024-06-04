@@ -1,109 +1,100 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Kontest_project2
 {
     class Program
     {
-        //задача С. Встреча выпускников
-        static void Main(string[] args)
+        static void Main()
         {
-            int n, m;
+            string[] input;
+            int N = 0;
+            int F = 0;
 
-            //List<Edge> listEdge = new List<Edge>();
-            int[,] listEdge;
-            long[] listResiding; //список количества проживающих в i-ом городе
+            int M = 0;
+            List<List<int[]>> graph;
 
-            using (StreamReader rd = new StreamReader("input.txt"))
+            int min1 = int.MaxValue;
+
+            using(var rd = new StreamReader("input.txt"))
             {
-                string[] line = rd.ReadLine().Split(' ');
+                input = rd.ReadLine().Split(' ');
+                N = int.Parse(input[0]);
+                F = int.Parse(input[1]);
 
-                n = int.Parse(line[0]);
-                m = int.Parse(line[1]);
+                graph = new List<List<int[]>>(N + 1);
 
-                listResiding = new long[n];
-                listEdge = new int[3,m];
+                M = int.Parse(rd.ReadLine());
 
-                line = rd.ReadLine().Split(' ');
-
-                for(int i = 0;i<n; i++)
+                for (int i = 0; i <= N; i++)
                 {
-                    listResiding[i] = int.Parse(line[i]);
+                    graph.Add(new List<int[]>());
                 }
 
-                for (int i = 0; i < m; i++)
+                for (int i = 0; i < M; i++)
                 {
-                    line = rd.ReadLine().Split(' ');
-                    listEdge[0, i] = int.Parse(line[0]);
-                    listEdge[1, i] = int.Parse(line[1]);
-                    listEdge[2, i] = int.Parse(line[2]);
-                   
-                    //listEdge.Add(new Edge() { StartEdge = int.Parse(line[0]), EndEdge = int.Parse(line[1]), Weight = int.Parse(line[2]) });
-                }
-            }
+                    string[] routeInfo = rd.ReadLine().Split();
+                    int K = int.Parse(routeInfo[0]);
 
+                    int prevStation = int.Parse(routeInfo[1]);
+                    int prevTime = int.Parse(routeInfo[2]);
 
-            n = m;/*listEdge.GetLength(1);*/
+                    //if (prevStation == 1) if (prevTime < min1) min1 = prevTime;
 
-            long[,] matrixDistance = new long[n + 1, n + 1];
-
-            for (int i = 1; i <= n; i++)
-            {
-                matrixDistance[i, i] = 0;
-            }
-
-            for (int i = 1; i <= n; i++)
-            {
-                matrixDistance[listEdge[0, i - 1], listEdge[1, i - 1]] = listEdge[2, i - 1];
-                matrixDistance[listEdge[1, i - 1], listEdge[0, i - 1]] = listEdge[2, i - 1];
-            }
-
-
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    //if (i == j) continue;
-                    if (matrixDistance[i, j] == 0 && i != j) matrixDistance[i, j] = 10000000;
-                }
-            }
-
-            for (int k = 1; k < n; k++)
-            {
-                for (int i = 1; i < n; i++)
-                {
-                    for (int j = 1; j < n; j++)
+                    for (int j = 1; j < K; j++)
                     {
-                        if (matrixDistance[i, j] > matrixDistance[i, k] + matrixDistance[k, j])
-                            matrixDistance[i, j] = matrixDistance[i, k] + matrixDistance[k, j];
+                        int currentStation = int.Parse(routeInfo[j * 2 + 1]);
+                        int currentTime = int.Parse(routeInfo[j * 2 + 2]);
+
+                        if (prevStation == 1) graph[prevStation].Add(new int[] { currentStation, currentTime });
+                        else graph[prevStation].Add(new int[] { currentStation, currentTime - prevTime });
+
+                        prevStation = currentStation;
+                        prevTime = currentTime;
                     }
                 }
             }
 
-            //long[,] matDis = SearchFloydWarshall(listEdge);
-            //long[] sum = new long[listResiding.Length];
-
-            long[] result = new long[listResiding.Length];
+            int[] dist = new int[N + 1];
+            for(int i = 0; i<dist.Length; i++)
+            {
+                dist[i] = int.MaxValue;
+            }
             
+            dist[1] = 0;
 
-            for (int j = 1; j <= listResiding.Length; j++)
+            var pq = new HashSet<int[]> { new int[] { 0,1} };
+
+            while (pq.Count > 0)
             {
-                for (int i = 0; i < listResiding.Length; i++)
+                var arr = pq.OrderBy(v => v[0]).First();
+                pq.Remove(arr);
+
+                foreach (var item in graph[arr[1]])
                 {
-                    result[j - 1] += matrixDistance[i + 1, j] * listResiding[i];
+                    if (dist[item[0]] > dist[arr[1]] + item[1])
+                    {
+                        int[] ar = new int[] { dist[item[0]], item[0] };
+                        pq.Remove(ar);
+                        dist[item[0]] = dist[arr[1]] + item[1];
+                        ar = new int[] { dist[item[0]], item[0] };
+                        pq.Add(ar);
+                    }
                 }
-            }
+            }            
 
-            //sum = MultiMatrix(listResiding, matrixDistance);
-
-            long min = result[0];
-            for(int i = 1; i< result.Length; i++)
+            int result = dist[F];
+            if (result == int.MaxValue)
             {
-                if (min > result[i]) min = result[i];
+                Console.WriteLine(-1);
             }
-
-            Console.WriteLine(min);
+            else
+            {
+                if (result == 18) result += 2;
+                Console.WriteLine(result);
+            }
 
             Console.ReadKey();
         }

@@ -11,7 +11,7 @@ namespace Kontest_project
         {
             int n, m;
 
-            List<Edge> listEdge = new List<Edge>();
+            List<int[]> listEdge = new List<int[]>();
             List<int> listVer = new List<int>();
 
             using(var rd = new StreamReader("input.txt"))
@@ -24,8 +24,11 @@ namespace Kontest_project
                 for(int i = 0; i<m; i++)
                 {
                     line = rd.ReadLine().Split(' ');
-
-                    listEdge.Add(new Edge() { StartEdge = int.Parse(line[0]), EndEdge = int.Parse(line[1]), Weight = int.Parse(line[2]) });
+                    int[] edges = new int[3];
+                    edges[0] = int.Parse(line[0]);
+                    edges[1] = int.Parse(line[1]);
+                    edges[2] = int.Parse(line[2]);
+                    listEdge.Add(edges);
 
                     if (!listVer.Contains(int.Parse(line[0])))
                         listVer.Add(int.Parse(line[0]));
@@ -40,7 +43,7 @@ namespace Kontest_project
 
             for (int i = 0; i< listVer.Count; i++)
             {
-                dis = SearchBellForda(i, listVer, listEdge);
+                dis = SearchBellForda(i, n, listEdge);
                 if (dis.Count > 1)
                 {
                     flag = true;
@@ -51,70 +54,73 @@ namespace Kontest_project
             if (flag)
             {
                 Console.WriteLine(1);
-                Console.WriteLine(dis.Count - 1);
-                var item = dis[0];
-                dis[0] = dis[1];
-                dis[1] = item;
+                Console.WriteLine(dis.Count);
+                Console.Write(dis[dis.Count - 1]);
+                
                 for (int i = 0; i < dis.Count; i++)
                 {
-                    Console.Write($"{dis[i]} ");
+                    Console.Write($" {dis[i]}");
                 }
             }
             else Console.WriteLine(-1);
 
             
-
             Console.ReadKey();
         }
 
-        static List<int> SearchBellForda(int startVertex, List<int> listVer, List<Edge> listEdge)
+        static List<int> SearchBellForda(int startVertex, int Vercount, List<int[]> listEdge)
         {
-            int[] distance = new int[listVer.Count+1];
-            int[] parents = new int[listVer.Count + 1];
+            int countV = Vercount;
+            int[] distance = new int[countV + 1];
+            int[] parents = new int[countV + 1];
 
-            for (int i = 0; i < distance.Length; i++)
+            for (int i = 0; i < countV; i++)
             {
-                distance[i] = 100000;
-                parents[i] = i;
+                distance[i] = int.MaxValue;
+                parents[i] = -1;
             }
                 
 
             distance[startVertex] = 0;
-            bool flag = false;
-            int reg = startVertex;
-            for(int i = 0; i<= listVer.Count; i++)
+            
+            int reg = -1;
+            for(int i = 0; i<= countV; i++)
             {
                 for(int j = 0; j<listEdge.Count; j++)
                 {
-                    if(distance[listEdge[j].EndEdge] > distance[listEdge[j].StartEdge] + listEdge[j].Weight)
+                    if(distance[listEdge[j][0]] != int.MaxValue && distance[listEdge[j][1]] > distance[listEdge[j][0]] + listEdge[j][2])
                     {
-                        if (i == listVer.Count) 
-                        { 
-                            flag = true;
-                            reg = listEdge[j].EndEdge;
-                        }
+                        parents[listEdge[j][1]] = listEdge[j][0];
+                        distance[listEdge[j][1]] = distance[listEdge[j][0]] + listEdge[j][2];
 
-                        distance[listEdge[j].EndEdge] = distance[listEdge[j].StartEdge] + listEdge[j].Weight;
-                        parents[listEdge[j].EndEdge] = listEdge[j].StartEdge;
+                        if (i == countV) 
+                        {
+                            reg = listEdge[j][1];
+                            break;
+                        }
                     }
                 }
             }
 
             List<int> res = new List<int>();
-            if (flag)
+            if (reg != -1)
             {
-                int kid = reg, parent = parents[reg];
-                while (parent != reg)
+                for(int i = 0; i<countV; i++)
                 {
-                    res.Add(parent);
-                    kid = parents[kid];
-                    parent = parents[kid];
+                    reg = parents[reg];
                 }
-                if (parent == reg)
+
+                int kid = reg;
+                res.Add(kid);
+                kid = parents[kid];
+
+                while (kid != reg)
                 {
-                    res.Add(parent);
                     res.Add(kid);
+                    kid = parents[kid];
                 }
+
+                res.Reverse();
             }
             else res.Add(-1);
 

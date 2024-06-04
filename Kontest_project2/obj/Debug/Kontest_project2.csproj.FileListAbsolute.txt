@@ -12,3 +12,6 @@ C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project2\obj\De
 C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project2\obj\Debug\Kontest_project2.csproj.CoreCompileInputs.cache
 C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project2\obj\Debug\Kontest_project2.exe
 C:\Users\eremeevad\Desktop\Новая папка\Kontest\Kontest_project2\obj\Debug\Kontest_project2.pdb
+C:\работы по програм-ю\Kontest\Kontest_project2\bin\Debug\System.ValueTuple.dll
+C:\работы по програм-ю\Kontest\Kontest_project2\bin\Debug\System.ValueTuple.xml
+C:\работы по програм-ю\Kontest\Kontest_project2\obj\Debug\Kontest_project2.csproj.CopyComplete
