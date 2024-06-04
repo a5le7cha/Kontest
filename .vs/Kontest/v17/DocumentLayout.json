@@ -1,13 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\Kontest\\",
+  "WorkspaceRootPath": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D8B2F2CA-94DE-4060-8481-B5524A34E8D4}|Kontest_project2\\Kontest_project2.csproj|c:\\users\\eremeevad\\desktop\\\u043D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\kontest\\kontest_project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F654BFE3-81F9-404B-BE78-6ECB371D4E0C}|Kontest_project3\\Kontest_project3.csproj|c:\\users\\eremeevad\\desktop\\\u043D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\kontest\\kontest_project3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F654BFE3-81F9-404B-BE78-6ECB371D4E0C}|Kontest_project3\\Kontest_project3.csproj|solutionrelative:kontest_project3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8B2F2CA-94DE-4060-8481-B5524A34E8D4}|Kontest_project2\\Kontest_project2.csproj|c:\\users\\eremeevad\\desktop\\\u043D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\kontest\\kontest_project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8B2F2CA-94DE-4060-8481-B5524A34E8D4}|Kontest_project2\\Kontest_project2.csproj|solutionrelative:kontest_project2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{789B4F33-9023-4B42-AF2A-A3A381E5DE91}|Kontest_project\\Kontest_project.csproj|c:\\users\\eremeevad\\desktop\\\u043D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\kontest\\kontest_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{789B4F33-9023-4B42-AF2A-A3A381E5DE91}|Kontest_project\\Kontest_project.csproj|C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\kontest_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{789B4F33-9023-4B42-AF2A-A3A381E5DE91}|Kontest_project\\Kontest_project.csproj|solutionrelative:kontest_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,33 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\Kontest\\Kontest_project\\Program.cs",
-              "RelativeDocumentMoniker": "Kontest_project\\Program.cs",
-              "ToolTip": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\Kontest\\Kontest_project\\Program.cs",
-              "RelativeToolTip": "Kontest_project\\Program.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAgwA4AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T14:28:04.002Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\Kontest\\Kontest_project2\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project3\\Program.cs",
+              "RelativeDocumentMoniker": "Kontest_project3\\Program.cs",
+              "ToolTip": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project3\\Program.cs",
+              "RelativeToolTip": "Kontest_project3\\Program.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAgwDAAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T05:25:16.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project2\\Program.cs",
               "RelativeDocumentMoniker": "Kontest_project2\\Program.cs",
-              "ToolTip": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430\\Kontest\\Kontest_project2\\Program.cs",
+              "ToolTip": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project2\\Program.cs",
               "RelativeToolTip": "Kontest_project2\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAASAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwBIAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T11:19:32.786Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project\\Program.cs",
+              "RelativeDocumentMoniker": "Kontest_project\\Program.cs",
+              "ToolTip": "C:\\Users\\eremeevad\\Desktop\\\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430 (3)\\Kontest\\Kontest_project\\Program.cs",
+              "RelativeToolTip": "Kontest_project\\Program.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAgwA4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T14:28:04.002Z"
             }
           ]
         }
