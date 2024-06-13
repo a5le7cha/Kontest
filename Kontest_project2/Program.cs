@@ -1,102 +1,112 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace Kontest_project2
 {
+    struct Flight
+    {
+        public int TimeBegin;   
+        public int TimeEnd;     
+        public int DesStstion;  
+    }
+
     class Program
     {
         static void Main()
         {
-            string[] input;
-            int N = 0;
-            int F = 0;
+            List<List<Flight>> rasp = new List<List<Flight>>();
 
-            int M = 0;
-            List<List<int[]>> graph;
-
-            int min1 = int.MaxValue;
-
-            using(var rd = new StreamReader("input.txt"))
+            int N, F, m;
+            using (var rd = new StreamReader("input.txt"))
             {
-                input = rd.ReadLine().Split(' ');
-                N = int.Parse(input[0]);
-                F = int.Parse(input[1]);
+                string[] line = rd.ReadLine().Split(' ');
 
-                graph = new List<List<int[]>>(N + 1);
+                N = int.Parse(line[0]);
+                F = int.Parse(line[1]);
 
-                M = int.Parse(rd.ReadLine());
+                line = rd.ReadLine().Split(' ');
+                m = int.Parse(line[0]);
+
 
                 for (int i = 0; i <= N; i++)
                 {
-                    graph.Add(new List<int[]>());
+                    rasp.Add(new List<Flight>());
                 }
 
-                for (int i = 0; i < M; i++)
+                for (int i = 0; i < m; i++)
                 {
-                    string[] routeInfo = rd.ReadLine().Split();
-                    int K = int.Parse(routeInfo[0]);
+                    string[] inputs = rd.ReadLine().Split(' ');
+                    int len = int.Parse(inputs[0]);
+                    int prevStation = int.Parse(inputs[1]);
+                    int prevTime = int.Parse(inputs[2]);
 
-                    int prevStation = int.Parse(routeInfo[1]);
-                    int prevTime = int.Parse(routeInfo[2]);
-
-                    //if (prevStation == 1) if (prevTime < min1) min1 = prevTime;
-
-                    for (int j = 1; j < K; j++)
+                    for (int j = 3; j < 2*len; j+=2)
                     {
-                        int currentStation = int.Parse(routeInfo[j * 2 + 1]);
-                        int currentTime = int.Parse(routeInfo[j * 2 + 2]);
+                        //inputs = rd.ReadLine().Split(' ');
+                        int curStation = int.Parse(inputs[j]);
+                        int curTime = int.Parse(inputs[j + 1]);
 
-                        if (prevStation == 1) graph[prevStation].Add(new int[] { currentStation, currentTime });
-                        else graph[prevStation].Add(new int[] { currentStation, currentTime - prevTime });
+                        rasp[prevStation].Add(new Flight { TimeBegin = prevTime, TimeEnd = curTime, DesStstion = curStation });
 
-                        prevStation = currentStation;
-                        prevTime = currentTime;
+                        prevStation = curStation;
+                        prevTime = curTime;
                     }
                 }
             }
 
-            int[] dist = new int[N + 1];
-            for(int i = 0; i<dist.Length; i++)
+            const int INF = int.MaxValue;
+            int[] minTime = new int[N + 1];
+            bool[] isFinal = new bool[N + 1];
+
+            for (int i = 0; i < minTime.Length; i++)
             {
-                dist[i] = int.MaxValue;
+                minTime[i] = INF;
+            }
+
+            minTime[1] = 0;
+
+            while (true)
+            {
+                int minSt = -1;
+                int minT = INF;
+
+                for (int i = 1; i <= N; i++)
+                {
+                    if (!isFinal[i] && minTime[i] < minT)
+                    {
+                        minT = minTime[i];
+                        minSt = i;
+                    }
+                }
+
+                if (minT == INF)
+                    break;
+
+                isFinal[minSt] = true;
+
+                foreach (var edge in rasp[minSt])
+                {
+                    if (edge.TimeBegin >= minTime[minSt])
+                    {
+                        if (edge.TimeEnd < minTime[edge.DesStstion])
+                        {
+                            minTime[edge.DesStstion] = edge.TimeEnd;
+                        }
+                    }
+                }
+            }
+
+            using(var wr = new StreamWriter("output.txt"))
+            {
+                if (minTime[F] == INF)
+                    wr.WriteLine("-1");
+                else
+                    wr.WriteLine(minTime[F]);
             }
             
-            dist[1] = 0;
 
-            var pq = new HashSet<int[]> { new int[] { 0,1} };
-
-            while (pq.Count > 0)
-            {
-                var arr = pq.OrderBy(v => v[0]).First();
-                pq.Remove(arr);
-
-                foreach (var item in graph[arr[1]])
-                {
-                    if (dist[item[0]] > dist[arr[1]] + item[1])
-                    {
-                        int[] ar = new int[] { dist[item[0]], item[0] };
-                        pq.Remove(ar);
-                        dist[item[0]] = dist[arr[1]] + item[1];
-                        ar = new int[] { dist[item[0]], item[0] };
-                        pq.Add(ar);
-                    }
-                }
-            }            
-
-            int result = dist[F];
-            if (result == int.MaxValue)
-            {
-                Console.WriteLine(-1);
-            }
-            else
-            {
-                if (result == 18) result += 2;
-                Console.WriteLine(result);
-            }
-
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

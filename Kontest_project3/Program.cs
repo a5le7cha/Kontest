@@ -92,33 +92,10 @@ namespace Kontest_project3
             {
                 graph[roads[i].Key, roads[i].Value] = 0;
 
-                if(!roads.Contains(new KeyValuePair<int, int>(roads[i].Value, roads[i].Key)))
+                if (graph[roads[i].Value, roads[i].Key] != 0)
                     graph[roads[i].Value, roads[i].Key] = 1;
+
             }
-
-            //for (int i = 1; i< graph.GetLength(0); i++)
-            //{
-            //    for(int j = 1; j < graph.GetLength(1); j++)
-            //    {
-            //        if (roads.Contains(new KeyValuePair<int, int>(i, j)))
-            //        {
-            //            graph[i, j] = 0;
-
-            //            if(!roads.Contains(new KeyValuePair<int, int>(j, i)))
-            //                graph[j, i] = 1;
-            //        }
-            //        //else if (i == j)
-            //        //{
-            //        //    graph[i, j] = 0;
-            //        //    graph[j, i] = 0;
-            //        //}
-            //        //else if (graph[i, j] != 0 && graph[j, i] != 0)
-            //        //{
-            //        //    graph[i, j] = 0;
-            //        //    graph[j, i] = 0;
-            //        //}
-            //    }
-            //}
 
             int max = int.MinValue;
             for(int i = 1; i<=N; i++)
